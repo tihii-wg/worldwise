@@ -4,16 +4,12 @@ import styles from "./AppNav.module.css";
 function AppNav() {
   return (
     <nav className={styles.nav}>
-      
       <ul>
         <li>
-          <NavLink to="/product">Product</NavLink>
+          <NavLink to="cities">cities</NavLink>
         </li>
         <li>
-          <NavLink to="/pricing">Pricing</NavLink>
-        </li>
-        <li>
-          <NavLink to="/login">Login</NavLink>
+          <NavLink to="countries">Countries</NavLink>
         </li>
       </ul>
     </nav>
