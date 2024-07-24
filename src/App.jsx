@@ -10,7 +10,24 @@ import { useEffect, useState } from "react";
 const URL = "http://localhost:8000";
 
 function App() {
+  const [cities, setCities] = useState([]);
+  const [loading, setLoading] = useState(false);
 
+  useEffect(function () {
+    async function fetchCities() {
+      try {
+        setLoading(true);
+        const res = await fetch(`${URL}/cities`);
+        const data = await res.json();
+        setCities(data);
+      } catch {
+        alert("Problem with data");
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCities();
+  }, []);
 
   return (
     <BrowserRouter>
