@@ -20,19 +20,11 @@ function City() {
 
   const { cityName, emoji, date, notes } = currentCity;
   const { id } = useParams();
-  const [serchParams, setSerchParams] = useSearchParams();
-
-  const lat = serchParams.get("lat");
-  const lng = serchParams.get("lng");
 
   return (
     <>
-      <p>City{id}</p>
-      <h1>
-        {lat}
-        {lng}
-      </h1>
-      ;
+      <h1>City{id}</h1>
+  
     </>
   );
   //  return (
