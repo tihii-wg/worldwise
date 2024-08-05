@@ -7,8 +7,15 @@ function Map() {
   const lat = serchParams.get("lat");
   const lng = serchParams.get("lng");
 
+  const navigate = useNavigate();
+
   return (
-    <div className={styles.mapContainer}>
+    <div
+      className={styles.mapContainer}
+      onClick={() => {
+        navigate("form");
+      }}
+    >
       <h1>map</h1>
       <h1>id:{id}</h1>
       <h1>

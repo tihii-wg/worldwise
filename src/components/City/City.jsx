@@ -19,12 +19,25 @@ function City() {
   };
 
   const { cityName, emoji, date, notes } = currentCity;
+
   const { id } = useParams();
 
+  const [serchParams, setSerchParams] = useSearchParams();
+  const lat = serchParams.get("lat");
+  const lng = serchParams.get("lng");
   return (
     <>
-      <h1>City{id}</h1>
-  
+      <h1>City {id}</h1>
+      <h1>
+        Position: {lat},{lng}
+      </h1>
+      <button
+        onClick={() => {
+          setSerchParams({ lat: 4523252525, lng: 56235365475686 });
+        }}
+      >
+        new position
+      </button>
     </>
   );
   //  return (
