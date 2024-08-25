@@ -3,8 +3,11 @@ import styles from "./CountryList.module.css";
 import CountryItem from "../CountryItem/CountryItem";
 import Spinner from "../Spinner/Spinner";
 import Message from "../Message/Message";
+import { useCyties } from "../Contexts/CityContext";
 
-function CountryList({ cities, loading }) {
+function CountryList() {
+  const { cities, loading } = useCyties();
+
   if (loading) return <Spinner />;
 
   if (!cities.length) return <Message message="Sellect cyti." />;

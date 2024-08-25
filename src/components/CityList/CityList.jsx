@@ -1,16 +1,16 @@
-import styles from './CityList.module.css'
+import styles from "./CityList.module.css";
 
 import CityItem from "../CityItem/CityItem";
 import Spinner from "../Spinner/Spinner";
 import Message from "../Message/Message";
+import { useCyties } from "../Contexts/CityContext";
 
+function CityList() {
+  const { cities, loading } = useCyties();
 
-function CityList({ cities, loading }) {
+  if (loading) return <Spinner />;
 
-
-	if (loading) return <Spinner />;
-	
-	if (!cities.length) return <Message message="Select country on map." />;
+  if (!cities.length) return <Message message="Select country on map." />;
 
   return (
     <ul className={styles.cityList}>
