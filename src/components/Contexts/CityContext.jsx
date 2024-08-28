@@ -9,8 +9,6 @@ function CityProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState({});
 
-
-
   useEffect(function () {
     async function fetchCities() {
       try {
@@ -48,9 +46,9 @@ function CityProvider({ children }) {
     </CitiesContext.Provider>
   );
 }
-function useCyties() {
+function useCities() {
   const context = useContext(CitiesContext);
   if (context === undefined) throw new Error("Wrong place");
   return context;
 }
-export { CityProvider, useCyties };
+export { CityProvider, useCities };

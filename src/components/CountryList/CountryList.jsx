@@ -3,10 +3,10 @@ import styles from "./CountryList.module.css";
 import CountryItem from "../CountryItem/CountryItem";
 import Spinner from "../Spinner/Spinner";
 import Message from "../Message/Message";
-import { useCyties } from "../Contexts/CityContext";
+import { useCities } from "../Contexts/CityContext";
 
 function CountryList() {
-  const { cities, loading } = useCyties();
+  const { cities, loading } = useCities();
 
   if (loading) return <Spinner />;
 
