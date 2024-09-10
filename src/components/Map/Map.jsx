@@ -1,5 +1,5 @@
-import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import styles from "./Map.module.css";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   Marker,
   Popup,
@@ -8,15 +8,21 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
+import { useGeolocation } from "../../hooks/useGeolocation";
 import { useCities } from "../Contexts/CityContext";
 import { useEffect, useState } from "react";
+import Button from "../Button/Button";
 
 function Map() {
   const { cities } = useCities();
-  const { id } = useParams();
+  const {
+    isLoading: isGeolocationLoading,
+    position: geoPosition,
+    getPosition: getGeoPosition,
+  } = useGeolocation();
   const [position, setPosition] = useState([40, 0]);
-
   const [serchParams] = useSearchParams();
+
   const lat = serchParams.get("lat");
   const lng = serchParams.get("lng");
 
@@ -29,6 +35,11 @@ function Map() {
 
   return (
     <div className={styles.mapContainer}>
+      <Button
+        type={"position"}
+        children={"Use my Geolocation"}
+        onClick={getGeoPosition}
+      />
       <MapContainer
         className={styles.map}
         center={position}
@@ -40,29 +51,36 @@ function Map() {
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         />
         {cities.map((city) => (
-          <Marker position={position} key={city.id}>
+          <Marker
+            position={[city.position.lat, city.position.lng]}
+            key={city.id}
+          >
             <Popup>
               <span>{city.emoji}</span>
               <span>{city.cityName}</span>
             </Popup>
           </Marker>
         ))}
-        <SetForm />
+        <AddForm />
         <ChengeCenter position={position} />
       </MapContainer>
     </div>
   );
 }
+
 function ChengeCenter({ position }) {
   const map = useMap();
   map.setView(position);
   return null;
 }
 
-function SetForm() {
+function AddForm() {
   const navigate = useNavigate();
   const map = useMapEvents({
-    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+    click: (e) => {
+      navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`);
+      console.log(e);
+    },
   });
 }
 
