@@ -1,6 +1,8 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode?latitude=0&longitude=0"
 //"https://api.geoapify.com/v1/geocode/reverse?lat=0&lon=0&apiKey=ba108f9ec4d248ffa4d8ffeab757081f"
 
+//"emoji": "🇩🇪",
+
 import { useEffect, useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import styles from "./Form.module.css";
@@ -12,14 +14,15 @@ import { useSearchParamsHook } from "../../hooks/useSearchParamsHook";
 import Spinner from "../Spinner/Spinner";
 import { useCities } from "../Contexts/CitiesContext";
 import { useNavigate } from "react-router-dom";
+import { countryCodeEmoji } from "country-code-emoji";
 
-export function convertToEmoji(countryCode) {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
-}
+//export function convertToEmoji(countryCode) {
+//  const codePoints = countryCode
+//    .toUpperCase()
+//    .split("")
+//    .map((char) => 127397 + char.charCodeAt());
+//  return String.fromCodePoint(...codePoints);
+//}
 
 const flagemojiToPNG = (flag) => {
   let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
@@ -66,7 +69,7 @@ function Form() {
               ""
           );
           setCountry(data.features[0].properties.country);
-          setEmoji(data.features[0].properties.country_code.toUpperCase());
+          setEmoji(countryCodeEmoji(data.features[0].properties.country_code));
         } catch (err) {
           setGeocodingError(err.message);
         } finally {
@@ -110,7 +113,7 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        <span className={styles.flag}>{emoji}</span>
+        <span className={styles.flag}>{flagemojiToPNG(emoji)}</span>
       </div>
 
       <div className={styles.row}>

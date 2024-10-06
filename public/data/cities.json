@@ -1,99 +1,87 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
+      "id": "8694",
+      "cityName": "Chișinău",
+      "country": "Moldova",
+      "emoji": "🇲🇩",
+      "date": "2024-10-06T18:26:25.687Z",
+      "notes": "test",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": "73930385"
+        "lat": "47.00086080525214",
+        "lng": "28.833618164062504"
+      }
     },
     {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "Es",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": "17806751"
-    },
-    {
+      "id": "6771",
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
-    },
-    {
-      "id": "f7a3",
-      "cityName": "La Almunia De Doña Godina",
-      "country": "Spain",
-      "emoji": "🇩🇪",
-      "date": "2024-10-06T13:14:21.968Z",
+      "date": "2024-10-06T18:27:49.508Z",
       "notes": "",
       "position": {
-        "lat": "41.45919537950706",
-        "lng": "-1.4282226562500002"
+        "lat": "52.506191342034604",
+        "lng": "13.410186767578127"
       }
     },
     {
-      "id": "977c",
-      "cityName": "Oleiros",
-      "country": "Portugal",
-      "emoji": "PT",
-      "date": "2024-10-06T17:32:18.688Z",
+      "id": "1bde",
+      "cityName": "Oroklini",
+      "country": "Cyprus",
+      "emoji": "🇨🇾",
+      "date": "2024-10-06T18:28:33.490Z",
       "notes": "",
       "position": {
-        "lat": "39.842286020743394",
-        "lng": "-7.888183593750001"
+        "lat": "34.987666504848626",
+        "lng": "33.65106940269471"
       }
     },
     {
-      "id": "f293",
-      "cityName": "Oleiros",
-      "country": "Portugal",
-      "emoji": "PT",
-      "date": "2024-10-06T17:32:18.688Z",
+      "id": "4d4f",
+      "cityName": "Tarsus",
+      "country": "Turkey",
+      "emoji": "🇹🇷",
+      "date": "2024-10-06T18:30:51.267Z",
       "notes": "",
       "position": {
-        "lat": "39.842286020743394",
-        "lng": "-7.888183593750001"
+        "lat": "37.07271048132946",
+        "lng": "34.91455078125001"
       }
     },
     {
-      "id": "bf83",
-      "cityName": "Puebla de Don Rodrigo",
-      "country": "Spain",
-      "emoji": "ES",
-      "date": "2024-10-06T17:33:35.626Z",
-      "notes": "test",
+      "id": "7b66",
+      "cityName": "Svinishta",
+      "country": "North Macedonia",
+      "emoji": "🇲🇰",
+      "date": "2024-10-06T18:31:06.368Z",
+      "notes": "",
       "position": {
-        "lat": "39.16414104768742",
-        "lng": "-4.724121093750001"
+        "lat": "41.21172151054787",
+        "lng": "20.917968750000004"
       }
     },
     {
-      "id": "eada",
-      "cityName": "Estepa",
-      "country": "Spain",
-      "emoji": "ES",
-      "date": "2024-10-06T17:35:21.005Z",
+      "id": "daee",
+      "cityName": "Polygyros",
+      "country": "Greece",
+      "emoji": "🇬🇷",
+      "date": "2024-10-06T18:31:25.793Z",
       "notes": "",
       "position": {
-        "lat": "37.28279464911048",
-        "lng": "-4.7900390625"
+        "lat": "40.36328834091583",
+        "lng": "23.466796875000004"
+      }
+    },
+    {
+      "id": "876b",
+      "cityName": "Kassandra Municipal Unit",
+      "country": "Greece",
+      "emoji": "🇬🇷",
+      "date": "2024-10-06T18:31:33.376Z",
+      "notes": "",
+      "position": {
+        "lat": "39.97291055131899",
+        "lng": "23.477783203125004"
       }
     }
   ]
