@@ -1,5 +1,4 @@
 import styles from "./Map.module.css";
-import { useNavigate } from "react-router-dom";
 import {
   Marker,
   Popup,
@@ -8,29 +7,33 @@ import {
   useMap,
   useMapEvents,
 } from "react-leaflet";
-import { useCities } from "../Contexts/CityContext";
+import { useCities } from "../Contexts/CitiesContext";
 import { useEffect, useState } from "react";
-import { useCoordinats } from "../../hooks/useCoordinats";
-import { useGeolocation } from "../../hooks/useGeolocation";
+import { useSearchParamsHook } from "../../hooks/useSearchParamsHook";
+import { useNavigate } from "react-router-dom";
+import { useGeolocationHook } from "../../hooks/useGeolocationHook";
 import Button from "../Button/Button";
 
 function Map() {
   const { cities } = useCities();
-  const [position, setPosition] = useState([40, 0]);
-  const [lat, lng] = useCoordinats();
+  const [position, setPosition] = useState([40, 2]);
+  const [lat, lng] = useSearchParamsHook();
   const {
     isLoading: isGeolocationLoading,
     position: geolocationPosition,
+    error,
     getPosition,
-  } = useGeolocation();
+  } = useGeolocationHook();
 
-  useEffect(
-    function () {
-      if (lat && lng) setPosition([lat, lng]);
-    },
-    [lat, lng]
-  );
-
+  const flagemojiToPNG = (flag) => {
+	let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+	  .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+	  .join("");
+	return (
+	  <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
+	);
+ };
+	
   useEffect(
     function () {
       if (geolocationPosition)
@@ -39,11 +42,17 @@ function Map() {
     [geolocationPosition]
   );
 
+  useEffect(
+    function () {
+      if (lat && lng) setPosition([lat, lng]);
+    },
+    [lat, lng]
+  );
   return (
     <div className={styles.mapContainer}>
       {!geolocationPosition && (
-        <Button type={"position"} onClick={getPosition}>
-          {!isGeolocationLoading ? "Use my geolocation" : "Loading..."}
+        <Button type="position" onClick={getPosition}>
+          {isGeolocationLoading ? "Loading..." : "Use My Geoposition"}
         </Button>
       )}
       <MapContainer
@@ -62,27 +71,27 @@ function Map() {
             key={city.id}
           >
             <Popup>
-              <span>{city.emoji}</span>
+              <span>{flagemojiToPNG(city.emoji)}</span>
               <span>{city.cityName}</span>
             </Popup>
           </Marker>
         ))}
-        <FormDetect />
-        <ChengeCenter position={position} />
+        <DetectIvent />
+        <SetMapPosition position={position} />
       </MapContainer>
     </div>
   );
 }
-function ChengeCenter({ position }) {
+function SetMapPosition({ position }) {
   const map = useMap();
   map.setView(position);
   return null;
 }
-
-function FormDetect() {
+function DetectIvent() {
   const navigate = useNavigate();
   useMapEvents({
     click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   });
 }
+
 export default Map;

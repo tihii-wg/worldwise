@@ -3,7 +3,7 @@ import styles from "./CountryList.module.css";
 import CountryItem from "../CountryItem/CountryItem";
 import Spinner from "../Spinner/Spinner";
 import Message from "../Message/Message";
-import { useCities } from "../Contexts/CityContext";
+import { useCities } from "../Contexts/CitiesContext";
 
 function CountryList() {
   const { cities, loading } = useCities();

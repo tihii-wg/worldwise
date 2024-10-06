@@ -38,6 +38,7 @@ function CityProvider({ children }) {
     }
   }
 
+
   return (
     <CitiesContext.Provider
       value={{ cities, loading, currentCity, fetchCurrentCity }}

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./CityItem.module.css";
-import { useCities } from "../Contexts/CityContext";
+import { useCities } from "../Contexts/CitiesContext";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -8,6 +8,15 @@ const formatDate = (date) =>
     month: "long",
     year: "numeric",
   }).format(new Date(date));
+
+const flagemojiToPNG = (flag) => {
+  let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+    .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+    .join("");
+  return (
+    <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
+  );
+};
 
 function CityItem({ city }) {
   const { currentCity } = useCities();
@@ -24,7 +33,8 @@ function CityItem({ city }) {
         }`}
         to={`${id}?lat=${lat}&lng=${lng}`}
       >
-        <span className={styles.emoji}>{emoji}</span>
+        <span className={styles.emoji}>{flagemojiToPNG(emoji)}</span>
+
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>({formatDate(date)})</time>
         <button className={styles.deleteBtn}>&times;</button>
