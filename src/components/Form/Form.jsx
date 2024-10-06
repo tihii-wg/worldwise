@@ -10,14 +10,16 @@ import BackButton from "../BackButton/BackButton";
 import DatePicker from "react-datepicker";
 import { useSearchParamsHook } from "../../hooks/useSearchParamsHook";
 import Spinner from "../Spinner/Spinner";
+import { useCities } from "../Contexts/CitiesContext";
+import { useNavigate } from "react-router-dom";
 
-//export function convertToEmoji(countryCode) {
-//  const codePoints = countryCode
-//    .toUpperCase()
-//    .split("")
-//    .map((char) => 127397 + char.charCodeAt());
-//  return String.fromCodePoint(...codePoints);
-//}
+export function convertToEmoji(countryCode) {
+  const codePoints = countryCode
+    .toUpperCase()
+    .split("")
+    .map((char) => 127397 + char.charCodeAt());
+  return String.fromCodePoint(...codePoints);
+}
 
 const flagemojiToPNG = (flag) => {
   let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
@@ -33,13 +35,16 @@ const BaseUrl2 = "https://api.geoapify.com/v1/geocode/reverse?";
 const ApiKey = "&apiKey=ba108f9ec4d248ffa4d8ffeab757081f";
 
 function Form() {
+  const { createCity } = useCities();
+  const [lat, lng] = useSearchParamsHook();
+  const navigate = useNavigate();
+
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
   const [geocodingError, setGeocodingError] = useState("");
   const [isFetchCityLoading, setIsFetchCityLoading] = useState(false);
-  const [lat, lng] = useSearchParamsHook();
   const [emoji, setEmoji] = useState("");
 
   useEffect(
@@ -51,9 +56,8 @@ function Form() {
           setIsFetchCityLoading(true);
           setGeocodingError("");
           const res = await fetch(`${BaseUrl2}lat=${lat}&lon=${lng}${ApiKey}`);
-			  const data = await res.json();
-			  
-			  
+          const data = await res.json();
+
           if (!data.features[0].properties.country_code)
             throw new Error("no country");
           setCityName(
@@ -62,7 +66,7 @@ function Form() {
               ""
           );
           setCountry(data.features[0].properties.country);
-          setEmoji(data.features[0].properties.country_code);
+          setEmoji(data.features[0].properties.country_code.toUpperCase());
         } catch (err) {
           setGeocodingError(err.message);
         } finally {
@@ -74,6 +78,23 @@ function Form() {
     [lat, lng]
   );
 
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!cityName || !date) return;
+
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: { lat, lng },
+    };
+
+    await createCity(newCity);
+    navigate("/app/cities");
+  }
   if (!lat && !lng) return <Message message={"Click somewhere on the map"} />;
 
   if (isFetchCityLoading) return <Spinner />;
@@ -81,7 +102,7 @@ function Form() {
   if (geocodingError) return <Message message={geocodingError} />;
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
         <input
@@ -89,7 +110,7 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        <span className={styles.flag}>{flagemojiToPNG(emoji)}</span>
+        <span className={styles.flag}>{emoji}</span>
       </div>
 
       <div className={styles.row}>

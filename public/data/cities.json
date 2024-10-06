@@ -15,7 +15,7 @@
     {
       "cityName": "Madrid",
       "country": "Spain",
-      "emoji": "🇪🇸",
+      "emoji": "Es",
       "date": "2027-07-15T08:22:53.976Z",
       "notes": "",
       "position": {
@@ -37,27 +37,63 @@
       "id": "98443197"
     },
     {
-      "id": "1aeb",
-      "cityName": "Monaco",
-      "country": "Monaco",
-      "emoji": "🇲🇨",
-      "date": "2024-10-05T14:33:50.505Z",
+      "id": "f7a3",
+      "cityName": "La Almunia De Doña Godina",
+      "country": "Spain",
+      "emoji": "🇩🇪",
+      "date": "2024-10-06T13:14:21.968Z",
       "notes": "",
       "position": {
-        "lat": "43.628123412124616",
-        "lng": "7.492675781250001"
+        "lat": "41.45919537950706",
+        "lng": "-1.4282226562500002"
       }
     },
     {
-      "id": "e907",
-      "cityName": "Badia Tedalda",
-      "country": "Italy",
-      "emoji": "🇮🇹",
-      "date": "2024-10-05T14:33:50.505Z",
+      "id": "977c",
+      "cityName": "Oleiros",
+      "country": "Portugal",
+      "emoji": "PT",
+      "date": "2024-10-06T17:32:18.688Z",
       "notes": "",
       "position": {
-        "lat": "43.739352079154706",
-        "lng": "12.0849609375"
+        "lat": "39.842286020743394",
+        "lng": "-7.888183593750001"
+      }
+    },
+    {
+      "id": "f293",
+      "cityName": "Oleiros",
+      "country": "Portugal",
+      "emoji": "PT",
+      "date": "2024-10-06T17:32:18.688Z",
+      "notes": "",
+      "position": {
+        "lat": "39.842286020743394",
+        "lng": "-7.888183593750001"
+      }
+    },
+    {
+      "id": "bf83",
+      "cityName": "Puebla de Don Rodrigo",
+      "country": "Spain",
+      "emoji": "ES",
+      "date": "2024-10-06T17:33:35.626Z",
+      "notes": "test",
+      "position": {
+        "lat": "39.16414104768742",
+        "lng": "-4.724121093750001"
+      }
+    },
+    {
+      "id": "eada",
+      "cityName": "Estepa",
+      "country": "Spain",
+      "emoji": "ES",
+      "date": "2024-10-06T17:35:21.005Z",
+      "notes": "",
+      "position": {
+        "lat": "37.28279464911048",
+        "lng": "-4.7900390625"
       }
     }
   ]
