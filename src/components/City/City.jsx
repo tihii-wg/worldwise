@@ -4,6 +4,7 @@ import { useCities } from "../Contexts/CitiesContext";
 import { useEffect } from "react";
 import Spinner from "../Spinner/Spinner";
 import BackButton from "../BackButton/BackButton";
+import { countryCodeEmoji } from "country-code-emoji";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -16,17 +17,16 @@ const formatDate = (date) =>
 function City() {
   const { id } = useParams();
   const { loading, fetchCurrentCity, currentCity } = useCities();
-
+  
   const flagemojiToPNG = (flag) => {
-    let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
-      .map((char) => String.fromCharCode(char - 127397).toLowerCase())
-      .join("");
-    return (
-      <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
-    );
-  };
-  const { cityName, emoji, date, notes } = currentCity;
-
+	  let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+	  .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+	  .join("");
+	  return (
+		  <img src={`https://flagcdn.com/24x18/${!countryCode}.png`} alt="flag" />
+		);
+	};
+	const { cityName, emoji, date, notes } = currentCity;
   useEffect(function () {
     fetchCurrentCity(id);
   }, []);
@@ -37,7 +37,7 @@ function City() {
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{flagemojiToPNG(emoji)}</span> {cityName}
+          <span>{emoji}</span> {cityName}
         </h3>
       </div>
 
@@ -46,7 +46,7 @@ function City() {
         <p>{formatDate(date || null)}</p>
       </div>
 
-      {notes && (
+      {currentCity.notes && (
         <div className={styles.row}>
           <h6>Your notes</h6>
           <p>{notes}</p>

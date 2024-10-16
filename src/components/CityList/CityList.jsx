@@ -11,7 +11,6 @@ function CityList() {
   if (loading) return <Spinner />;
 
   if (!cities.length) return <Message message="Select country on map." />;
-
   return (
     <ul className={styles.cityList}>
       {cities.map((city) => (

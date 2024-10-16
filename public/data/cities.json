@@ -1,87 +1,15 @@
 {
   "cities": [
     {
-      "id": "8694",
-      "cityName": "Chișinău",
-      "country": "Moldova",
-      "emoji": "🇲🇩",
-      "date": "2024-10-06T18:26:25.687Z",
-      "notes": "test",
-      "position": {
-        "lat": "47.00086080525214",
-        "lng": "28.833618164062504"
-      }
-    },
-    {
-      "id": "6771",
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2024-10-06T18:27:49.508Z",
+      "id": "3ea9",
+      "cityName": "Montijo",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2024-10-13T15:22:23.684Z",
       "notes": "",
       "position": {
-        "lat": "52.506191342034604",
-        "lng": "13.410186767578127"
-      }
-    },
-    {
-      "id": "1bde",
-      "cityName": "Oroklini",
-      "country": "Cyprus",
-      "emoji": "🇨🇾",
-      "date": "2024-10-06T18:28:33.490Z",
-      "notes": "",
-      "position": {
-        "lat": "34.987666504848626",
-        "lng": "33.65106940269471"
-      }
-    },
-    {
-      "id": "4d4f",
-      "cityName": "Tarsus",
-      "country": "Turkey",
-      "emoji": "🇹🇷",
-      "date": "2024-10-06T18:30:51.267Z",
-      "notes": "",
-      "position": {
-        "lat": "37.07271048132946",
-        "lng": "34.91455078125001"
-      }
-    },
-    {
-      "id": "7b66",
-      "cityName": "Svinishta",
-      "country": "North Macedonia",
-      "emoji": "🇲🇰",
-      "date": "2024-10-06T18:31:06.368Z",
-      "notes": "",
-      "position": {
-        "lat": "41.21172151054787",
-        "lng": "20.917968750000004"
-      }
-    },
-    {
-      "id": "daee",
-      "cityName": "Polygyros",
-      "country": "Greece",
-      "emoji": "🇬🇷",
-      "date": "2024-10-06T18:31:25.793Z",
-      "notes": "",
-      "position": {
-        "lat": "40.36328834091583",
-        "lng": "23.466796875000004"
-      }
-    },
-    {
-      "id": "876b",
-      "cityName": "Kassandra Municipal Unit",
-      "country": "Greece",
-      "emoji": "🇬🇷",
-      "date": "2024-10-06T18:31:33.376Z",
-      "notes": "",
-      "position": {
-        "lat": "39.97291055131899",
-        "lng": "23.477783203125004"
+        "lat": "38.75408327579141",
+        "lng": "-8.613281250000002"
       }
     }
   ]

@@ -19,7 +19,7 @@ const flagemojiToPNG = (flag) => {
 };
 
 function CityItem({ city }) {
-  const { currentCity, deleteCity, cities } = useCities();
+  const { currentCity, deleteCity} = useCities();
   const { cityName, date, emoji, id, position } = city;
 
   const lat = position.lat;
