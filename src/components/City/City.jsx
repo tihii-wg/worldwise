@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
 import { useCities } from "../Contexts/CitiesContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Spinner from "../Spinner/Spinner";
 import BackButton from "../BackButton/BackButton";
 import { countryCodeEmoji } from "country-code-emoji";
@@ -17,20 +17,29 @@ const formatDate = (date) =>
 function City() {
   const { id } = useParams();
   const { loading, fetchCurrentCity, currentCity } = useCities();
-  
-  const flagemojiToPNG = (flag) => {
-	  let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
-	  .map((char) => String.fromCharCode(char - 127397).toLowerCase())
-	  .join("");
-	  return (
-		  <img src={`https://flagcdn.com/24x18/${!countryCode}.png`} alt="flag" />
-		);
-	};
-	const { cityName, emoji, date, notes } = currentCity;
+
+  //  const flagemojiToPNG = (flag) => {
+  //    let countryCode = Array.from(flag, (codeUnit) => codeUnit.codePointAt())
+  //      .map((char) => String.fromCharCode(char - 127397).toLowerCase())
+  //      .join("");
+  //    return (
+  //      <img src={`https://flagcdn.com/24x18/${!countryCode}.png`} alt="flag" />
+  //    );
+  //  };
+  //  function getFlagEmoji(countryCode) {
+  //	const codePoints = countryCode
+  //	  .toUpperCase()
+  //	  .split("")
+  //	  .map((char) => 127397 + char.charCodeAt());
+  //	return String.fromCodePoint(...codePoints);
+  //	}
+
+  const { cityName, emoji, date, notes } = currentCity;
+
   useEffect(function () {
     fetchCurrentCity(id);
-  }, []);
-
+  }, [id]);
+	
   if (loading) return <Spinner />;
   return (
     <div className={styles.city}>

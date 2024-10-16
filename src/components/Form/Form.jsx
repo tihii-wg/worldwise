@@ -98,6 +98,7 @@ function Form() {
     await createCity(newCity);
     navigate("/app/cities");
   }
+
   if (!lat && !lng) return <Message message={"Click somewhere on the map"} />;
 
   if (isFetchCityLoading) return <Spinner />;

@@ -1,15 +1,51 @@
 {
   "cities": [
     {
-      "id": "3ea9",
-      "cityName": "Montijo",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2024-10-13T15:22:23.684Z",
+      "id": "e208",
+      "cityName": "Saint-Martin-De-Goyne",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2024-10-14T17:20:07.266Z",
       "notes": "",
       "position": {
-        "lat": "38.75408327579141",
-        "lng": "-8.613281250000002"
+        "lat": "43.992814500489914",
+        "lng": "0.5712890625000001"
+      }
+    },
+    {
+      "id": "5642",
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2024-10-14T17:48:46.072Z",
+      "notes": "",
+      "position": {
+        "lat": "52.511415336975304",
+        "lng": "13.39988708496094"
+      }
+    },
+    {
+      "id": "8126",
+      "cityName": "Santo André",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2024-10-16T17:34:39.460Z",
+      "notes": "",
+      "position": {
+        "lat": "38.65119833229951",
+        "lng": "-9.052734375000002"
+      }
+    },
+    {
+      "id": "592c",
+      "cityName": "Rome",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "2024-10-16T17:34:54.490Z",
+      "notes": "",
+      "position": {
+        "lat": "41.87774145109676",
+        "lng": "12.494201660156252"
       }
     }
   ]
