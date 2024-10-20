@@ -19,9 +19,9 @@ export default function Login() {
 
   useEffect(
     function () {
-      if (isAuthenticated === true) navigate("/app");
+      if (isAuthenticated === true) navigate("/app", { replace: true });
     },
-    [isAuthenticated]
+    [isAuthenticated, navigate]
   );
 
   return (

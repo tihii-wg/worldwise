@@ -11,7 +11,8 @@ function AppLayout() {
     <div className={style.app}>
       {isAuthenticated ? <User /> : ""}
       <SideBar />
-      <Map />
+		  <Map />
+		  
     </div>
   );
 }
